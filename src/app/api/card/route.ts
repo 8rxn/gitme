@@ -7,8 +7,8 @@ export const runtime = "edge";
 export const GET = async (req: NextRequest) => {
   let username;
   // if (!user && req) {
-    const searchParams = new URLSearchParams(req.nextUrl.searchParams);
-    username = searchParams.get("user") || "8rxn";
+  const searchParams = new URLSearchParams(req.nextUrl.searchParams);
+  username = searchParams.get("user") || "8rxn";
   // }
   // if (user) {
   //   username = user;
@@ -127,7 +127,7 @@ export const GET = async (req: NextRequest) => {
     ctx.globalAlpha = 1.0;
     ctx.shadowBlur = 0;
 
-        ctx.beginPath();
+    ctx.beginPath();
     ctx.moveTo(x / scale + radius, y / scale);
     ctx.lineTo(x / scale + width - radius, y / scale);
     ctx.quadraticCurveTo(
