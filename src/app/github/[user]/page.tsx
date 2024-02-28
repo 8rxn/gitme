@@ -1,6 +1,6 @@
 import React from "react";
 
-import { GET as getUserData } from "@/app/api/github/route";
+import { GET as getUserData } from "@/app/api/card/route";
 
 import Download from "@/components/download-button";
 import { NextRequest } from "next/server";
@@ -35,11 +35,11 @@ export async function generateMetadata(
 
 const Page = async ({ params }: Props) => {
   const res = await getUserData(
-    new NextRequest(`${process.env.API_URL}/github?user=${params.user}`)
+    new NextRequest(`${process.env.API_URL}/card?user=${params.user}`)
   );
   const data = await res.json();
 
-  const linkToImage = `${process.env.API_URL}/github?user=${params.user}`;
+  const linkToImage = `${process.env.API_URL}/card?user=${params.user}`;
 
   return (
     <>
