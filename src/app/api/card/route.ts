@@ -159,7 +159,7 @@ export const GET = async (req: NextRequest) => {
     ctx.font = 'bold 25px "Giest", sans-serif';
 
     try {
-      const image = await loadImage("public/github.png");
+      const image = await loadImage("https://git-me.vercel.app/github.png");
       const imageWidth = (640 * 2) / 5;
       ctx.drawImage(image, -20, 80, imageWidth, imageWidth);
 
