@@ -48,7 +48,7 @@ export const GET = async (req: NextRequest) => {
 
     ctx.fillStyle = "#232323";
 
-    registerFont("GeistMonoVariableVF.ttf", { family: "Giest" })
+    registerFont("./fonts/GeistMonoVariableVF.ttf", { family: "Giest" })
 
     const scale = 2;
     ctx.scale(scale, scale);
