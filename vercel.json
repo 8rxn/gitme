@@ -1,7 +1,7 @@
 {
     "functions": {
       "src/app/**/*": {
-        "includeFiles": "src/app/api/_files/**"
+        "includeFiles": "src/app/api/_files/fonts/giest.otf"
       }
     }
   }

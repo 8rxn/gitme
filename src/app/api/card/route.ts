@@ -2,7 +2,6 @@ import { createCanvas, loadImage, registerFont } from "canvas";
 import { NextRequest, NextResponse } from "next/server";
 import QRCode from "qrcode";
 
-import { join } from "path";
 
 export const GET = async (req: NextRequest) => {
   let username;
@@ -49,19 +48,6 @@ export const GET = async (req: NextRequest) => {
     const ctx = canvas.getContext("2d");
 
     ctx.fillStyle = "#232323";
-
-    console.log("Current directory:", process.cwd());
-
-    console.log("Font path:", join(__dirname, "_files/fonts/giest.otf"));
-
-    console.log(
-      "Font exists:",
-      require("fs").existsSync(join(__dirname, "_files/fonts/giest.otf"))
-    );
-
-    registerFont(join(__dirname, "_files/fonts/giest.otf"), {
-      family: "Giest",
-    });
 
     const scale = 2;
     ctx.scale(scale, scale);
@@ -168,7 +154,7 @@ export const GET = async (req: NextRequest) => {
     ctx.closePath();
     ctx.fill();
 
-    ctx.font = 'bold 25px "Giest", sans-serif';
+    ctx.font = 'bold 25px "Noto Sans", sans-serif';
 
     try {
       const image = await loadImage("https://git-me.vercel.app/github.png");
@@ -181,11 +167,11 @@ export const GET = async (req: NextRequest) => {
 
       ctx.fillStyle = "#fafafa";
 
-      ctx.font = 'bold 30px "Giest", sans-serif';
+      ctx.font = 'bold 30px "Noto Sans", sans-serif';
       ctx.fillText(`${userData.name}`, x / scale, y / scale);
 
       // Draw username (less bold)
-      ctx.font = 'bold 16px "Giest", sans-serif';
+      ctx.font = 'bold 16px "Noto Sans", sans-serif';
 
       ctx.save();
 
@@ -210,7 +196,7 @@ export const GET = async (req: NextRequest) => {
       y += lineHeight * 3;
 
       // Draw other details (normal)
-      ctx.font = '20px "Giest", sans-serif';
+      ctx.font = '20px "Noto Sans", sans-serif';
       ctx.fillText(
         `${userData.public_repos} repos   ${starredData.length} stars  `,
         x / scale,
