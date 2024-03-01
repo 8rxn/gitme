@@ -4,19 +4,18 @@ import QRCode from "qrcode";
 
 import { join } from "path";
 
-
-async function loadAndRegisterFont(url:string, fontName:string) {
+async function loadAndRegisterFont(url: string, fontName: string) {
   const res = await fetch(url);
   if (!res.ok) {
-      throw new Error(`Failed to download font: ${res.statusText}`);
+    throw new Error(`Failed to download font: ${res.statusText}`);
   }
-  //@ts-ignore
-  const buffer = await res.buffer();
+
+  const arrayBuffer = await res.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
   const tempPath = join(__dirname, `${fontName}.ttf`);
   require("fs").writeFileSync(tempPath, buffer);
   registerFont(tempPath, { family: fontName });
 }
-
 
 export const GET = async (req: NextRequest) => {
   let username;
@@ -64,7 +63,10 @@ export const GET = async (req: NextRequest) => {
 
     ctx.fillStyle = "#232323";
 
-    await loadAndRegisterFont('https://cdn.rajaryan.work/fonts%2FGeistMonoVariableVF.ttf', 'Geist');
+    await loadAndRegisterFont(
+      "https://cdn.rajaryan.work/fonts%2FGeistMonoVariableVF.ttf",
+      "Geist"
+    );
 
     const scale = 2;
     ctx.scale(scale, scale);
@@ -171,7 +173,7 @@ export const GET = async (req: NextRequest) => {
     ctx.closePath();
     ctx.fill();
 
-    ctx.font = 'bold 25px Giest';
+    ctx.font = "bold 25px Giest";
 
     try {
       const image = await loadImage("https://git-me.vercel.app/github.png");
@@ -184,11 +186,11 @@ export const GET = async (req: NextRequest) => {
 
       ctx.fillStyle = "#fafafa";
 
-      ctx.font = 'bold 30px Giest';
+      ctx.font = "bold 30px Giest";
       ctx.fillText(`${userData.name}`, x / scale, y / scale);
 
       // Draw username (less bold)
-      ctx.font = 'bold 16px Giest';
+      ctx.font = "bold 16px Giest";
 
       ctx.save();
 
@@ -213,7 +215,7 @@ export const GET = async (req: NextRequest) => {
       y += lineHeight * 3;
 
       // Draw other details (normal)
-      ctx.font = '20px Giest';
+      ctx.font = "20px Giest";
       ctx.fillText(
         `${userData.public_repos} repos   ${starredData.length} stars  `,
         x / scale,
