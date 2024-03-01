@@ -50,10 +50,18 @@ export const GET = async (req: NextRequest) => {
 
     ctx.fillStyle = "#232323";
 
-
     console.log("Current directory:", process.cwd());
-    
-    registerFont(join(__dirname, '_files/fonts/giest.otf'), { family: 'Giest' })
+
+    console.log("Font path:", join(__dirname, "_files/fonts/giest.otf"));
+
+    console.log(
+      "Font exists:",
+      require("fs").existsSync(join(__dirname, "_files/fonts/giest.otf"))
+    );
+
+    registerFont(join(__dirname, "_files/fonts/giest.otf"), {
+      family: "Giest",
+    });
 
     const scale = 2;
     ctx.scale(scale, scale);
