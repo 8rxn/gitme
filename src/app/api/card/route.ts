@@ -2,8 +2,6 @@ import { createCanvas, loadImage, registerFont } from "canvas";
 import { NextRequest, NextResponse } from "next/server";
 import QRCode from "qrcode";
 
-
-
 export const GET = async (req: NextRequest) => {
   let username;
   // if (!user && req) {
@@ -54,7 +52,7 @@ export const GET = async (req: NextRequest) => {
     console.log("Current directory:", process.cwd());
     
 
-    // registerFont("public/Verdana.otf", { family: "Verdana" });
+    registerFont("./giest.otf", { family: "Giest" });
 
     const scale = 2;
     ctx.scale(scale, scale);
@@ -161,7 +159,7 @@ export const GET = async (req: NextRequest) => {
     ctx.closePath();
     ctx.fill();
 
-    ctx.font = 'bold 25px ,"Courier New", sans-serif';
+    ctx.font = 'bold 25px "Giest", sans-serif';
 
     try {
       const image = await loadImage("https://git-me.vercel.app/github.png");
@@ -174,11 +172,11 @@ export const GET = async (req: NextRequest) => {
 
       ctx.fillStyle = "#fafafa";
 
-      ctx.font = 'bold 30px ,"Courier New", sans-serif';
+      ctx.font = 'bold 30px "Giest", sans-serif';
       ctx.fillText(`${userData.name}`, x / scale, y / scale);
 
       // Draw username (less bold)
-      ctx.font = 'bold 16px ,"Courier New", sans-serif';
+      ctx.font = 'bold 16px "Giest", sans-serif';
 
       ctx.save();
 
@@ -203,7 +201,7 @@ export const GET = async (req: NextRequest) => {
       y += lineHeight * 3;
 
       // Draw other details (normal)
-      ctx.font = '20px ,"Courier New", sans-serif';
+      ctx.font = '20px "Giest", sans-serif';
       ctx.fillText(
         `${userData.public_repos} repos   ${starredData.length} stars  `,
         x / scale,
