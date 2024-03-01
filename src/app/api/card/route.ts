@@ -2,7 +2,6 @@ import { createCanvas, loadImage, registerFont } from "canvas";
 import { NextRequest, NextResponse } from "next/server";
 import QRCode from "qrcode";
 
-
 export const GET = async (req: NextRequest) => {
   let username;
   // if (!user && req) {
@@ -12,6 +11,24 @@ export const GET = async (req: NextRequest) => {
   // if (user) {
   //   username = user;
   // }
+
+  console.log(
+    require("child_process").exec(
+      "fc-list",
+      (error: any, stdout: any, stderr: any) => {
+        if (error) {
+          console.error(`Error: ${error.message}`);
+          return;
+        }
+        if (stderr) {
+          console.error(`stderr: ${stderr}`);
+          return;
+        }
+        console.log(`Installed fonts:\n${stdout}`);
+      }
+    )
+  );
+
   const token = process.env.GITHUB_TOKEN;
   // const username = "8rxn";
   const userDataUrl = `https://api.github.com/users/${username}`;
