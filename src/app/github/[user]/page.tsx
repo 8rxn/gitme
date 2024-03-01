@@ -10,26 +10,28 @@ import { Metadata, ResolvingMetadata } from "next";
 
 type Props = { params: { user: string } };
 
+export const runtime = "edge";
+
 export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const user = params.user;
 
-  const image = `${process.env.API_URL}/preview?user=${user}`
+  const image = `${process.env.API_URL}/preview?user=${user}`;
 
   return {
     title: `${user}'s Git Card`,
     openGraph: {
       images: [image],
     },
-    twitter:{
-      card:"summary_large_image",
-      site:"@8rxn_",
-      creator:"@8rxn_",
-      images:[image]
+    twitter: {
+      card: "summary_large_image",
+      site: "@8rxn_",
+      creator: "@8rxn_",
+      images: [image],
     },
-    description:`A simple tool to generate a card for your GitHub profile.`
+    description: `A simple tool to generate a card for your GitHub profile.`,
   };
 }
 
