@@ -2,6 +2,22 @@ import { createCanvas, loadImage, registerFont } from "canvas";
 import { NextRequest, NextResponse } from "next/server";
 import QRCode from "qrcode";
 
+import { join } from "path";
+
+
+async function loadAndRegisterFont(url:string, fontName:string) {
+  const res = await fetch(url);
+  if (!res.ok) {
+      throw new Error(`Failed to download font: ${res.statusText}`);
+  }
+  //@ts-ignore
+  const buffer = await res.buffer();
+  const tempPath = join(__dirname, `${fontName}.ttf`);
+  require("fs").writeFileSync(tempPath, buffer);
+  registerFont(tempPath, { family: fontName });
+}
+
+
 export const GET = async (req: NextRequest) => {
   let username;
   // if (!user && req) {
@@ -48,7 +64,7 @@ export const GET = async (req: NextRequest) => {
 
     ctx.fillStyle = "#232323";
 
-    registerFont("./fonts/GeistMonoVariableVF.ttf", { family: "Giest" })
+    await loadAndRegisterFont('https://cdn.rajaryan.work/fonts%2FGeistMonoVariableVF.ttf', 'Geist');
 
     const scale = 2;
     ctx.scale(scale, scale);
