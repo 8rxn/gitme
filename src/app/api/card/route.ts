@@ -171,7 +171,7 @@ export const GET = async (req: NextRequest) => {
     ctx.closePath();
     ctx.fill();
 
-    ctx.font = 'bold 25px "Noto Sans", sans-serif';
+    ctx.font = 'bold 25px ';
 
     try {
       const image = await loadImage("https://git-me.vercel.app/github.png");
@@ -184,11 +184,11 @@ export const GET = async (req: NextRequest) => {
 
       ctx.fillStyle = "#fafafa";
 
-      ctx.font = 'bold 30px "Noto Sans", sans-serif';
+      ctx.font = 'bold 30px ';
       ctx.fillText(`${userData.name}`, x / scale, y / scale);
 
       // Draw username (less bold)
-      ctx.font = 'bold 16px "Noto Sans", sans-serif';
+      ctx.font = 'bold 16px ';
 
       ctx.save();
 
@@ -213,7 +213,7 @@ export const GET = async (req: NextRequest) => {
       y += lineHeight * 3;
 
       // Draw other details (normal)
-      ctx.font = '20px "Noto Sans", sans-serif';
+      ctx.font = '20px ';
       ctx.fillText(
         `${userData.public_repos} repos   ${starredData.length} stars  `,
         x / scale,
