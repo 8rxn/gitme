@@ -17,6 +17,7 @@
     "canvas": "^2.11.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "fs": "0.0.1-security",
     "geist": "^1.2.2",
     "html-to-image": "^1.11.11",
     "html2canvas": "^1.4.1",
