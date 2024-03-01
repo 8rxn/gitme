@@ -1,6 +1,6 @@
 {
     "functions": {
-      "api/card/": {
+      "src/app/**/*": {
         "includeFiles": "_files/**"
       }
     }
