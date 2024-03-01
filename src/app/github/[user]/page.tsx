@@ -10,7 +10,7 @@ import { Metadata, ResolvingMetadata } from "next";
 
 type Props = { params: { user: string } };
 
-export const runtime = "edge";
+
 
 export async function generateMetadata(
   { params }: Props,

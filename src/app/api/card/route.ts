@@ -4,8 +4,6 @@ import QRCode from "qrcode";
 
 
 
-export const runtime = "edge";
-
 export const GET = async (req: NextRequest) => {
   let username;
   // if (!user && req) {
