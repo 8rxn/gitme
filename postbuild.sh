@@ -10,7 +10,7 @@ unzip Geist.Mono.zip
 mkdir -p ./vercel/output/functions/api/card.func/.next/server/app/api/card/fonts
 
 # Step 4: Move the font file to the desired directory
-mv Geist.Mono/GeistMonoVariableVF.ttf ./vercel/output/functions/api/card.func/.next/server/app/api/card/fonts/
+mv Geist.Mono/GeistMonoVariableVF.ttf ./.vercel/output/functions/api/card.func/.next/server/app/api/card/fonts/
 
 # Step 5: Cleanup
 rm -rf Geist.Mono && rm Geist.Mono.zip

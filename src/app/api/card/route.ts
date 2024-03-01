@@ -11,24 +11,6 @@ export const GET = async (req: NextRequest) => {
   // if (user) {
   //   username = user;
   // }
-
-  console.log(
-    require("child_process").exec(
-      "fc-list",
-      (error: any, stdout: any, stderr: any) => {
-        if (error) {
-          console.error(`Error: ${error.message}`);
-          return;
-        }
-        if (stderr) {
-          console.error(`stderr: ${stderr}`);
-          return;
-        }
-        console.log(`Installed fonts:\n${stdout}`);
-      }
-    )
-  );
-
   const token = process.env.GITHUB_TOKEN;
   // const username = "8rxn";
   const userDataUrl = `https://api.github.com/users/${username}`;
@@ -65,6 +47,8 @@ export const GET = async (req: NextRequest) => {
     const ctx = canvas.getContext("2d");
 
     ctx.fillStyle = "#232323";
+
+    registerFont("GeistMonoVariableVF.ttf", { family: "Giest" })
 
     const scale = 2;
     ctx.scale(scale, scale);
