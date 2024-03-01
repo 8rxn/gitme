@@ -1,0 +1,7 @@
+{
+    "functions": {
+      "api/card/route.ts": {
+        "includeFiles": "_files/**"
+      }
+    }
+  }

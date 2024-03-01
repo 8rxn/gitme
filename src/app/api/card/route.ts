@@ -2,6 +2,8 @@ import { createCanvas, loadImage, registerFont } from "canvas";
 import { NextRequest, NextResponse } from "next/server";
 import QRCode from "qrcode";
 
+import { join } from "path";
+
 export const GET = async (req: NextRequest) => {
   let username;
   // if (!user && req) {
@@ -51,8 +53,7 @@ export const GET = async (req: NextRequest) => {
 
     console.log("Current directory:", process.cwd());
     
-
-    registerFont("./giest.otf", { family: "Giest" });
+    registerFont(join(__dirname, '_files/fonts/giest.otf'), { family: 'Giest' })
 
     const scale = 2;
     ctx.scale(scale, scale);
