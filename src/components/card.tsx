@@ -19,6 +19,7 @@ const Card = ({ imgSrc, linkToImage }: Props) => {
     const svgImage = document.createElement("img");
 
     svgImage.src = imgSrc;
+    
     // if (canvas.getContext("2d") == null) return;
     if (!canvas.getContext("2d")) return "";
     //@ts-ignore
@@ -31,7 +32,7 @@ const Card = ({ imgSrc, linkToImage }: Props) => {
 
   useEffect(() => {
     setImg(convertToSvg());
-  }, []);
+  }, [imgSrc]);
 
   return (
     <>
