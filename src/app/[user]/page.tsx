@@ -41,11 +41,11 @@ const Page = async ({ params }: Props) => {
   );
   const data = await res.json();
 
+  // const pngBuffer = await sharp(Buffer.from(data.svg)).png().toBuffer();
   
+  // console.log(data.imgSrc);
 
-  const pngBuffer = await sharp(Buffer.from(data.svg)).png().toBuffer();
-
-  data.imgSrc = `data:image/png;base64,${pngBuffer.toString("base64")}`;
+  // data.imgSrc = `data:image/png;base64,${pngBuffer.toString("base64")}`;
 
   const linkToImage = `${process.env.API_URL}/card?user=${params.user}`;
 
@@ -55,7 +55,8 @@ const Page = async ({ params }: Props) => {
         <div>
           <h1 className="text-4xl font-bold mb-4">Your Git Card</h1>
         </div>
-        <Card imgSrc={data.imgSrc} linkToImage={linkToImage}></Card>
+        {/* {data.svg} */}
+        <Card imgSrc={data.svg} linkToImage={linkToImage}></Card>
       </div>
     </>
   );

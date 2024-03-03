@@ -10,28 +10,38 @@ type Props = { imgSrc: string; linkToImage: string };
 const Card = ({ imgSrc, linkToImage }: Props) => {
   const [img, setImg] = useState<string>("");
 
-  function convertToSvg() {
-    const canvas = document.createElement("canvas");
+  let v;
 
-    canvas.width = 1280;
-    canvas.height = 640;
+  //   async function convertToSvg() {
+  //     const canvas = document.querySelector("canvas");
+  //     if (!canvas) return;
+  //     const ctx = canvas.getContext("2d");
 
-    const svgImage = document.createElement("img");
+  //     if (!ctx) return;
+  //     v = await Canvg.from(ctx, imgSrc);
 
-    svgImage.src = imgSrc;
-    
-    // if (canvas.getContext("2d") == null) return;
-    if (!canvas.getContext("2d")) return "";
-    //@ts-ignore
-    canvas.getContext("2d").drawImage(svgImage, 0, 0);
+  //     v.start();
+  //     // return pngImageData;
+  //   }
 
-    const pngImageData = canvas.toDataURL("image/png");
+  //   useEffect(() => {
+  //     // console.log(imgSrc)
+  //     convertToSvg();
 
-    return pngImageData;
-  }
+  //   }, [imgSrc]);
+
+  const svgToPng = async () => {
+    // Serialize the SVG to a string
+    var encodedSvgString = btoa(unescape(encodeURIComponent(imgSrc)));
+
+    // Create the Data URI string
+    var dataUri = "data:image/svg+xml;base64," + encodedSvgString;
+
+    setImg(dataUri);
+  };
 
   useEffect(() => {
-    setImg(convertToSvg());
+    svgToPng();
   }, [imgSrc]);
 
   return (
