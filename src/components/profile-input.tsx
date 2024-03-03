@@ -12,7 +12,7 @@ const ProfileInput = (props: Props) => {
   const router = useRouter();
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     const user = url.includes("/") ? url.split("/").pop() : url;
     router.push(`/${user}`);
   };
@@ -31,7 +31,9 @@ const ProfileInput = (props: Props) => {
           placeholder="github.com/8rxn"
           className="bg-black/10 dark:bg-white/10 placeholder:italic placeholder:text-xs"
         ></Input>
-        <Button className="w-fit mx-auto"> Create My Card</Button>
+        <Input type="submit">
+          <Button className="w-fit mx-auto"> Create My Card</Button>
+        </Input>
       </form>
     </div>
   );
