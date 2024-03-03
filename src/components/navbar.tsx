@@ -19,10 +19,16 @@ const Navbar = (props: Props) => {
         </div>
 
         <div className="flex gap-2">
-          <Button variant={"outline"}>𝕏 / <TwitterLogoIcon></TwitterLogoIcon></Button>
-          <Button variant={"outline"}>
-            <GitHubLogoIcon ></GitHubLogoIcon>
-          </Button>
+          <a href="http://twitter.com/rajxryan" target="_blank" rel="noreferrer noopener">
+            <Button variant={"outline"}>
+              𝕏 / <TwitterLogoIcon></TwitterLogoIcon>
+            </Button>
+          </a>
+          <a href="http://github.com/8rxn" target="_blank" rel="noreferrer noopener">
+            <Button variant={"outline"}>
+              <GitHubLogoIcon></GitHubLogoIcon>
+            </Button>
+          </a>
 
           <ThemeToggle></ThemeToggle>
         </div>
