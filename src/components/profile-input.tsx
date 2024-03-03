@@ -12,7 +12,7 @@ const ProfileInput = (props: Props) => {
   const router = useRouter();
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(url);
+    
     const user = url.includes("/") ? url.split("/").pop() : url;
     router.push(`/github/${user}`);
   };

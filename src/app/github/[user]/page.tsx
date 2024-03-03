@@ -8,6 +8,7 @@ import { AddImage } from "@/components/copy-code";
 import ShareButton from "@/components/share";
 import { Metadata, ResolvingMetadata } from "next";
 import sharp from "sharp";
+import Card from "@/components/card";
 
 type Props = { params: { user: string } };
 
@@ -40,7 +41,7 @@ const Page = async ({ params }: Props) => {
   );
   const data = await res.json();
 
-  console.log(data.svg);
+  
 
   const pngBuffer = await sharp(Buffer.from(data.svg)).png().toBuffer();
 
@@ -54,19 +55,7 @@ const Page = async ({ params }: Props) => {
         <div>
           <h1 className="text-4xl font-bold mb-4">Your Git Card</h1>
         </div>
-        <img src={data.imgSrc} width={640} height={320} alt="" />
-        <div className="flex gap-4  max-w-[640px] w-full mx-auto mt-0 ; justify-between">
-          <div className=" flex gap-4">
-            <Download img={data.imgSrc}> Download Image</Download>
-
-            <AddImage
-              link={`![github-readme-banner](${linkToImage})`}
-            ></AddImage>
-          </div>
-          <div className="self-end justify-self-end">
-            <ShareButton></ShareButton>
-          </div>
-        </div>
+        <Card imgSrc={data.imgSrc} linkToImage={linkToImage}></Card>
       </div>
     </>
   );
