@@ -8,11 +8,11 @@ import Navbar from "@/components/navbar";
 export const metadata: Metadata = {
   title: "Git Me",
   description: "Your personal GiHub Card Generator",
-  metadataBase: new URL("https://gitme.vercel.app"),
+  metadataBase: new URL("https://git-me.vercel.app"),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://gitme.vercel.app",
+    url: "https://git-me.vercel.app",
     siteName: "Git Me",
     images: ["/api/preview"],
   },
