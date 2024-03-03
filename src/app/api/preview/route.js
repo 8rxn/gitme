@@ -31,7 +31,7 @@ export async function GET(req) {
             width: "100%",
           }}
         >
-          <span style={{ color: "whitesmoke" }}>🌎 Git-Me.</span>
+          <span style={{ color: "whitesmoke" }}>🌎 GitMe.</span>
           <span style={{ color: "gray" }}>rajaryan.work/</span>
         </div>
         <div

@@ -4,7 +4,7 @@ type Props = {};
 
 const Footer = (props: Props) => {
   return (
-    <div className="min-w-screen p-6 fixed bottom-8">
+    <div className="min-w-screen p-6 fixed bottom-0">
       <div className="max-w-6xl mx-auto flex gap-4 justify-center flex-wrap  text-xs sm:text-sm">
         <div className=" border rounded-md p-1 hover:bg-neutral-50/10 px-4 text-wrap  tracking-[0.2rem] sm:tracking-wide text-center">
           With ❤️ from{" "}

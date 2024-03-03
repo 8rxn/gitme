@@ -1,4 +1,3 @@
-
 import { GET as getUserData } from "@/app/api/card/route";
 
 import { NextRequest } from "next/server";
@@ -38,7 +37,7 @@ const Page = async ({ params }: Props) => {
   const data = await res.json();
 
   // const pngBuffer = await sharp(Buffer.from(data.svg)).png().toBuffer();
-  
+
   // console.log(data.imgSrc);
 
   // data.imgSrc = `data:image/png;base64,${pngBuffer.toString("base64")}`;
@@ -49,7 +48,10 @@ const Page = async ({ params }: Props) => {
     <>
       <div className="flex flex-col gap-4">
         <div>
-          <h1 className="text-4xl font-bold mb-4">Your Git Card</h1>
+          <h1 className="text-4xl font-bold mb-4">
+            {" "}
+            {params.user}&apos;s Git Card
+          </h1>
         </div>
         {/* {data.svg} */}
         <Card imgSrc={data.svg} linkToImage={linkToImage}></Card>

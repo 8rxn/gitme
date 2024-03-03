@@ -9,6 +9,9 @@ export default function Home() {
           {" "}
           Your personal GiHub Card Generator
         </h2>
+        <div className="text-xs border mt-2 rounded-xl p-1 px-6 w-fit mx-auto bg-neutral-50/20 hover:bg-neutral-50/40">
+        Built on Cloudflare Workers
+        </div>
       </div>
       <div className="flex flex-col gap-3">
         <ProfileInput></ProfileInput>
