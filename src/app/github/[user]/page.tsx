@@ -41,6 +41,7 @@ const Page = async ({ params }: Props) => {
   );
   const data = await res.json();
 
+  console.log(data.imgSrc, "data.imgSrc")
   const linkToImage = `${process.env.API_URL}/card?user=${params.user}`;
 
   return (
