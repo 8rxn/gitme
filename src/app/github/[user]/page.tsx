@@ -7,10 +7,9 @@ import { NextRequest } from "next/server";
 import { AddImage } from "@/components/copy-code";
 import ShareButton from "@/components/share";
 import { Metadata, ResolvingMetadata } from "next";
+import sharp from "sharp";
 
 type Props = { params: { user: string } };
-
-
 
 export async function generateMetadata(
   { params }: Props,
@@ -41,7 +40,12 @@ const Page = async ({ params }: Props) => {
   );
   const data = await res.json();
 
-  console.log(data.imgSrc, "data.imgSrc")
+  console.log(data.svg);
+
+  const pngBuffer = await sharp(Buffer.from(data.svg)).png().toBuffer();
+
+  data.imgSrc = `data:image/png;base64,${pngBuffer.toString("base64")}`;
+
   const linkToImage = `${process.env.API_URL}/card?user=${params.user}`;
 
   return (
@@ -56,7 +60,7 @@ const Page = async ({ params }: Props) => {
             <Download img={data.imgSrc}> Download Image</Download>
 
             <AddImage
-              link={`![github-readme-banner]({${linkToImage}})`}
+              link={`![github-readme-banner](${linkToImage})`}
             ></AddImage>
           </div>
           <div className="self-end justify-self-end">

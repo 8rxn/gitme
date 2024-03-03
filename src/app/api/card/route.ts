@@ -2,9 +2,7 @@
 import { NextRequest, NextResponse } from "next/server";
 // import QRCode from "qrcode";
 
-import sharp from "sharp";
-
-
+// import sharp from "sharp";
 
 export const GET = async (req: NextRequest) => {
   let username;
@@ -286,10 +284,10 @@ export const GET = async (req: NextRequest) => {
 
     const data = await resData.text();
 
-    const pngBuffer = await sharp(Buffer.from(data)).toFormat("png").toBuffer();
+    // const pngBuffer = await sharp(Buffer.from(data)).toFormat("png").toBuffer();
 
     return NextResponse.json(
-      { imgSrc: `data:image/png;base64,${pngBuffer.toString("base64")}` },
+      { svg: data },
 
       { status: 200, headers: { "Content-Type": "application/json" } }
     );
