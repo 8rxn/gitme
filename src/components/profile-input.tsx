@@ -14,7 +14,7 @@ const ProfileInput = (props: Props) => {
     e.preventDefault();
     
     const user = url.includes("/") ? url.split("/").pop() : url;
-    router.push(`/github/${user}`);
+    router.push(`/${user}`);
   };
 
   return (

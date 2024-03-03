@@ -1,13 +1,9 @@
-import React from "react";
 
 import { GET as getUserData } from "@/app/api/card/route";
 
-import Download from "@/components/download-button";
 import { NextRequest } from "next/server";
-import { AddImage } from "@/components/copy-code";
-import ShareButton from "@/components/share";
 import { Metadata, ResolvingMetadata } from "next";
-import sharp from "sharp";
+
 import Card from "@/components/card";
 
 type Props = { params: { user: string } };
