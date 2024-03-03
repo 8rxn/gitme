@@ -1,3 +1,4 @@
+import Footer from "@/components/footer";
 import ProfileInput from "@/components/profile-input";
 export default function Home() {
   return (
@@ -22,6 +23,8 @@ export default function Home() {
           </span>
         </p>
       </div>
+
+      <Footer></Footer>
     </>
   );
 }
