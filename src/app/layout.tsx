@@ -14,13 +14,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://gitme.vercel.app",
     siteName: "Git Me",
-    images: ["og.png"],
+    images: ["/api/preview"],
   },
   twitter: {
     creator: "@8rxn_",
     site: "@8rxn_",
     card: "summary_large_image",
-    images: ["og.png"],
+    images: ["/api/preview"],
   },
 };
 

@@ -6,7 +6,7 @@ export const runtime = "edge";
 
 export async function GET(req) {
   const searchParams = new URLSearchParams(req.nextUrl.searchParams);
-  const username = searchParams.get("user") || "8rxn";
+  const username = searchParams.get("user") || "";
 
   return new ImageResponse(
     (
@@ -28,7 +28,7 @@ export async function GET(req) {
             display: "flex",
             justifyContent: "flex-end",
             alignItems: "center",
-            width:"100%"
+            width: "100%",
           }}
         >
           <span style={{ color: "whitesmoke" }}>🌎 Git-Me.</span>
@@ -39,10 +39,14 @@ export async function GET(req) {
             display: "flex",
             justifyContent: "flex-end",
             alignItems: "center",
-            width:"100%"
+            width: "100%",
           }}
         >
-          <h2 style={{ textAlign: "end", color: "whitesmoke"}}>{username}</h2>
+          {username && (
+            <h2 style={{ textAlign: "end", color: "whitesmoke" }}>
+              {username}
+            </h2>
+          )}
         </div>
       </div>
     )
