@@ -43,7 +43,7 @@ const Page = async ({ params }: Props) => {
 
   // data.imgSrc = `data:image/png;base64,${pngBuffer.toString("base64")}`;
 
-  const linkToImage = `${process.env.API_URL}/card?user=${params.user}`;
+  const linkToImage = `https://githubcard.rajaryan.work/user/${params.user}`;
 
   return (
     <>
