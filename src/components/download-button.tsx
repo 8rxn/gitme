@@ -12,7 +12,7 @@ const Download = ({ children, img }: Props) => {
   const downloadHandler = () => {
     const a = document.createElement("a");
     a.href = img;
-    a.download = "gitme.png";
+    a.download = "gitme.svg";
     a.click();
   };
   return (
