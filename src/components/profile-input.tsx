@@ -31,9 +31,9 @@ const ProfileInput = (props: Props) => {
           placeholder="github.com/8rxn"
           className="bg-black/10 dark:bg-white/10 placeholder:italic placeholder:text-xs"
         ></Input>
-        <Input type="submit">
-          <Button className="w-fit mx-auto"> Create My Card</Button>
+        <Input hidden className="hidden" type="submit">
         </Input>
+          <Button className="w-fit mx-auto"> Create My Card</Button>
       </form>
     </div>
   );

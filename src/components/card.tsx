@@ -46,9 +46,9 @@ const Card = ({ imgSrc, linkToImage }: Props) => {
 
   return (
     <>
-      <img src={img} width={640} height={320} alt="" />
+      <img src={img} width={640} height={320} className="max-w-[90vw] mx-auto" alt="" />
 
-      <div className="flex gap-4  max-w-[640px] w-full mx-auto mt-0 ; justify-between">
+      <div className="flex gap-4  max-w-[90vw] flex-wrap w-full mx-auto mt-0 ; justify-between">
         <div className=" flex gap-4">
           <Download img={img}> Download Image</Download>
 
