@@ -6,9 +6,7 @@ export const runtime = "edge";
 
 export async function GET(req) {
   const searchParams = new URLSearchParams(req.nextUrl.searchParams);
-  username = searchParams.get("user") || "8rxn";
-  const res = await fetch(`${process.env.API_URL}/card?user=${username}`);
-  const data = await res.json();
+  const username = searchParams.get("user") || "8rxn";
 
   return new ImageResponse(
     (
@@ -19,9 +17,33 @@ export async function GET(req) {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          justifyContent: "center",
+          padding: "20px",
+          fontSize: "90",
+          background: "url('https://cdn.rajaryan.work/git-card-worker/bg.png')",
         }}
       >
-        <img src={data.imgSrc} />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "center",
+            width:"100%"
+          }}
+        >
+          <span style={{ color: "whitesmoke" }}>🌎 Git-Me.</span>
+          <span style={{ color: "gray" }}>rajaryan.work/</span>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "center",
+            width:"100%"
+          }}
+        >
+          <h2 style={{ textAlign: "end", color: "whitesmoke"}}>{username}</h2>
+        </div>
       </div>
     )
   );
