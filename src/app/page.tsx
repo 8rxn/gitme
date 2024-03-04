@@ -10,8 +10,21 @@ export default function Home() {
           Your personal GiHub Card Generator
         </h2>
         <div className="text-xs border mt-2 rounded-xl p-1 px-6 w-fit mx-auto bg-neutral-50/20 hover:bg-neutral-50/40">
-        Built on Cloudflare Workers
+          Built on Cloudflare Workers
         </div>
+        <a
+        href="https://www.producthunt.com/posts/gitme?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-gitme"
+        target="_blank"
+      >
+        <img
+          src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=442707&theme=dark"
+          alt="GitMe - GitMe&#0058;&#0032;Forge&#0032;Your&#0032;GitHub&#0032;Presence&#0032;with&#0032;Style&#0033;&#0032;🛠️ | Product Hunt"
+          style={{ width: "125px", height: "27px",margin:'auto',"marginTop":"10px" }}
+          width={125}
+          height="27"
+          className="w-[62px] h-[18px] sm:w-[125px] sm:h-[27px]"
+        />
+      </a>
       </div>
       <div className="flex flex-col gap-3">
         <ProfileInput></ProfileInput>
@@ -28,6 +41,7 @@ export default function Home() {
       </div>
 
       <Footer></Footer>
+    
     </>
   );
 }
