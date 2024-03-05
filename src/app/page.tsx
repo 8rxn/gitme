@@ -7,7 +7,7 @@ export default function Home() {
         <h1 className="font-extrabold text-7xl ">GitMe</h1>
         <h2 className="text-2xl font-semibold">
           {" "}
-          Your personal GiHub Card Generator
+          Forge Your GitHub Presence with Style! 🛠️
         </h2>
         <div className="text-xs border mt-2 rounded-xl p-1 px-6 w-fit mx-auto bg-neutral-50/20 hover:bg-neutral-50/40">
           Built on Cloudflare Workers
